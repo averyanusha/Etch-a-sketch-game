@@ -1,0 +1,1 @@
+Etch-a-sketch is one of the final projects in foundation course on The Odin Project. The main idea of the project is to create a grid using DOM manipulations, the default grid is 16x16 but user can select a grid from 16 to 100. 

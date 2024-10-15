@@ -1,0 +1,30 @@
+.container {
+  width: 960px;
+  margin: auto;
+}
+.grid-input {
+  margin: 50px auto;
+}
+
+.grid-button {
+  color: brown;
+}
+
+.grid-container {
+  display: flex;
+  border: 5px solid black;
+}
+
+.grid-row {
+  width: 100px;
+}
+
+.grid-element {
+  border: solid 1px black;
+  height: 35px;
+  cursor: pointer;
+}
+
+.mouseover {
+  background-color: brown;
+}

@@ -2,9 +2,6 @@ const container = document.querySelector(".grid-container");
 const input = document.getElementById("human-grid");
 
 
-// container.appendChild(newDiv);
-
-
 function createGrid (tiles) {
   container.innerText = '';
   for (let i = 0; i < tiles; i ++) {
@@ -39,9 +36,7 @@ function randomColor()
   let random = (Math.floor(Math.random() * 10) * 0.255) * 100;
   return (random);
 }
-// function changeGrid (){
-//   createGrid(0);
-// }
+
 createGrid(16);
 
 const colorButton = document.querySelector(".color-button");

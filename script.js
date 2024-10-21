@@ -1,5 +1,6 @@
 const container = document.querySelector(".grid-container");
 const input = document.getElementById("human-grid");
+const clear = document.querySelector (".clear-button");
 
 
 function createGrid (tiles) {
@@ -11,9 +12,7 @@ function createGrid (tiles) {
       gridRows.appendChild(newDiv);
       gridRows.classList.add("grid-row");
       newDiv.classList.add("grid-element");
-      newDiv.addEventListener("mouseover", () => {
-        newDiv.style.background = 'rgb(' + randomColor() + ',' + randomColor() + ',' + randomColor() + ')';
-      })
+      mouseOver(newDiv);
     };
     container.appendChild(gridRows);
   }
@@ -22,13 +21,22 @@ function createGrid (tiles) {
 function requestedGrid (){
     let humanGrid;
     humanGrid = input.value;
-    if (!isNaN(humanGrid) && humanGrid >= 16 && humanGrid < 100)
+    /* Error check for input text
+    if (!isNaN(humanGrid) && humanGrid >= 16 && humanGrid <= 100)
     {
       createGrid(humanGrid);
     }
     else {
       alert("Error! Enter the grid between 16 and 100 tiles!");
     }
+    */
+   createGrid(humanGrid);
+}
+
+function mouseOver (element) {
+  element.addEventListener("mouseover", () => {
+    element.style.background = 'rgb(' + randomColor() + ',' + randomColor() + ',' + randomColor() + ')';
+  })
 }
 
 function randomColor()
@@ -37,19 +45,20 @@ function randomColor()
   return (random);
 }
 
-createGrid(16);
 
-const colorButton = document.querySelector(".color-button");
-colorButton.addEventListener("click", () => {
-  console.log(randomColor());
-})
+createGrid(16);
 
 const button = document.querySelector(".grid-button");
 button.addEventListener("click", () => {
   requestedGrid();
 })
 
-input.addEventListener("keydown", (event) => {
-  if(event.key === "Enter")
+input.addEventListener("click", () => {
     requestedGrid();
+})
+
+clear.addEventListener("click", () => {
+  container.innerText = '';
+  createGrid(16);
+  input.value = 16;
 })
